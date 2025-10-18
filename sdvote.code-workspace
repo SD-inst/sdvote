@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "ui"
+		},
+		{
+			"path": "server"
+		},
+		{
+			"path": "scripts"
+		}
+	],
+	"settings": {
+		"typescript.tsdk": ".yarn/sdks/typescript/lib",
+		"typescript.enablePromptUseWorkspaceTsdk": true
+	}
+}
