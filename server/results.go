@@ -35,6 +35,8 @@ func printResults(c echo.Context) error {
 	var tplParams struct {
 		Categories []string
 		Lines      map[string][][]int
+		TokenCount int64
+		TokensUsed int64
 	}
 	tplParams.Lines = map[string][][]int{}
 	for cat := range config {
@@ -47,6 +49,8 @@ func printResults(c echo.Context) error {
 		}
 	}
 	sort.Slice(tplParams.Categories, func(i, j int) bool { return strings.Compare(tplParams.Categories[i], tplParams.Categories[j]) > 0 })
+	db.Model(&Token{}).Where("vote_timestamp IS NOT NULL AND vote_allowed = 1").Count(&tplParams.TokensUsed)
+	db.Model(&Token{}).Where("vote_allowed = 1").Count(&tplParams.TokenCount)
 	err := tpl.Execute(c.Response(), tplParams)
 	if err != nil {
 		log.Print(err)

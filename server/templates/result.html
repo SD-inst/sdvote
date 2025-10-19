@@ -51,6 +51,10 @@
         </style>
     </head>
     <body>
+        <h2>Stats</h2>
+        <p>Total voter count: {{ .TokenCount }}</p>
+        <p>Already voted: {{ .TokensUsed }}</p>
+        {{ if eq .TokenCount .TokensUsed}}<h3>Everyone voted!</h3>{{ end }}
         {{ $root := . }} {{ range $category := .Categories }}
         <h1>Category: {{ $category }}</h1>
         <table class="grid" width="100%">
