@@ -1,0 +1,8 @@
+{
+    "sfw": {
+        "images": 3
+    },
+    "nsfw": {
+        "images": 4
+    }
+}

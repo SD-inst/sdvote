@@ -28,7 +28,7 @@ export const VoteTabs = () => {
         setVotes(votes);
     }, [config]);
     useEffect(() => {
-        fetch('config.json')
+        fetch('config/config.json')
             .then((r) => r.json())
             .then((j) => {
                 setConfig(j);

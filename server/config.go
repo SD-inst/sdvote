@@ -13,7 +13,7 @@ type Category struct {
 var config map[string]Category
 
 func loadConfig() {
-	f, err := os.Open("config.json")
+	f, err := os.Open("config/config.json")
 	if err != nil {
 		log.Fatal(err)
 	}

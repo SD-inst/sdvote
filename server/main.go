@@ -92,7 +92,7 @@ func generateSecurePassword(length int) (string, error) {
 func main() {
 	var err error
 	loadConfig()
-	db, err = gorm.Open(sqlite.Open("database.db"))
+	db, err = gorm.Open(sqlite.Open("data/database.db"))
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -122,6 +122,7 @@ func main() {
 	e.GET("/*", echo.StaticDirectoryHandler(root, false))
 	e.POST("/api/submit", submitHandler)
 	e.GET("/results", printResults)
+	e.Static("/config", "config")
 	initTemplates()
 	err = e.Start("0.0.0.0:8000")
 	if err != nil {
