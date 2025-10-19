@@ -1,9 +1,9 @@
-import { Box, Tab, Tabs } from '@mui/material';
+import { Box, Tab, Tabs, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
 import { TabContent } from './TabContent';
 import type { config, votes } from './types';
 import { VoteBox } from './VoteBox';
-import toast from 'react-hot-toast';
 
 export const VoteTabs = () => {
     const [tab, setTab] = useState('');
@@ -46,6 +46,14 @@ export const VoteTabs = () => {
     }, []);
     return (
         <Box display='flex' flexDirection='column' gap={2} alignItems='center'>
+            <Typography variant='body2'>
+                Use the arrow buttons under the images to move the images up and
+                down, or to the first/last place. In every category, move the
+                best image (in your opinion) to the top and the worst one to the
+                bottom. Then enter your voting code in the bottom text field and
+                press the big yellow button to vote!
+            </Typography>
+
             <Tabs value={tab} onChange={(_, t) => setTab(t)}>
                 {tabs.map((t) => (
                     <Tab value={t} label={t} key={t} />

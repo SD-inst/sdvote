@@ -35,7 +35,7 @@ type ClientVote struct {
 
 type Vote struct {
 	ModelBase
-	TokenID  uint64
+	TokenID  uint64 `gorm:"not null"`
 	Category string
 	Image    int
 	Score    int
