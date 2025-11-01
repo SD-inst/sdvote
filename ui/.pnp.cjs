@@ -45,6 +45,7 @@ const RAW_RUNTIME_STATE =
           ["globals", "npm:16.4.0"],\
           ["react", "npm:19.2.0"],\
           ["react-dom", "virtual:abd86f0db4e628a3d1844be9352358a814881ef2b82dee67188058dec9fd0f37a9154622d1055dbe04477d6e93c1d74ae4e55efba208fff05df26b9f136509a2#npm:19.2.0"],\
+          ["react-flip-toolkit", "virtual:abd86f0db4e628a3d1844be9352358a814881ef2b82dee67188058dec9fd0f37a9154622d1055dbe04477d6e93c1d74ae4e55efba208fff05df26b9f136509a2#npm:7.2.4"],\
           ["react-hot-toast", "virtual:abd86f0db4e628a3d1844be9352358a814881ef2b82dee67188058dec9fd0f37a9154622d1055dbe04477d6e93c1d74ae4e55efba208fff05df26b9f136509a2#npm:2.6.0"],\
           ["typescript", "patch:typescript@npm%3A5.9.3#optional!builtin<compat/typescript>::version=5.9.3&hash=5786d5"],\
           ["typescript-eslint", "virtual:abd86f0db4e628a3d1844be9352358a814881ef2b82dee67188058dec9fd0f37a9154622d1055dbe04477d6e93c1d74ae4e55efba208fff05df26b9f136509a2#npm:8.46.1"],\
@@ -2611,6 +2612,16 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["flip-toolkit", [\
+      ["npm:7.2.4", {\
+        "packageLocation": "../../../../home/rkfg/.yarn/berry/cache/flip-toolkit-npm-7.2.4-bff60e16b6-10c0.zip/node_modules/flip-toolkit/",\
+        "packageDependencies": [\
+          ["flip-toolkit", "npm:7.2.4"],\
+          ["rematrix", "npm:0.2.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["foreground-child", [\
       ["npm:3.3.1", {\
         "packageLocation": "../../../../home/rkfg/.yarn/berry/cache/foreground-child-npm-3.3.1-b7775fda04-10c0.zip/node_modules/foreground-child/",\
@@ -3533,6 +3544,34 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["react-flip-toolkit", [\
+      ["npm:7.2.4", {\
+        "packageLocation": "../../../../home/rkfg/.yarn/berry/cache/react-flip-toolkit-npm-7.2.4-e286e384bc-10c0.zip/node_modules/react-flip-toolkit/",\
+        "packageDependencies": [\
+          ["react-flip-toolkit", "npm:7.2.4"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:abd86f0db4e628a3d1844be9352358a814881ef2b82dee67188058dec9fd0f37a9154622d1055dbe04477d6e93c1d74ae4e55efba208fff05df26b9f136509a2#npm:7.2.4", {\
+        "packageLocation": "./.yarn/__virtual__/react-flip-toolkit-virtual-ec8d79909f/5/home/rkfg/.yarn/berry/cache/react-flip-toolkit-npm-7.2.4-e286e384bc-10c0.zip/node_modules/react-flip-toolkit/",\
+        "packageDependencies": [\
+          ["@types/react", "npm:19.2.2"],\
+          ["@types/react-dom", "virtual:abd86f0db4e628a3d1844be9352358a814881ef2b82dee67188058dec9fd0f37a9154622d1055dbe04477d6e93c1d74ae4e55efba208fff05df26b9f136509a2#npm:19.2.2"],\
+          ["flip-toolkit", "npm:7.2.4"],\
+          ["prop-types", "npm:15.8.1"],\
+          ["react", "npm:19.2.0"],\
+          ["react-dom", "virtual:abd86f0db4e628a3d1844be9352358a814881ef2b82dee67188058dec9fd0f37a9154622d1055dbe04477d6e93c1d74ae4e55efba208fff05df26b9f136509a2#npm:19.2.0"],\
+          ["react-flip-toolkit", "virtual:abd86f0db4e628a3d1844be9352358a814881ef2b82dee67188058dec9fd0f37a9154622d1055dbe04477d6e93c1d74ae4e55efba208fff05df26b9f136509a2#npm:7.2.4"]\
+        ],\
+        "packagePeers": [\
+          "@types/react-dom",\
+          "@types/react",\
+          "react-dom",\
+          "react"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["react-hot-toast", [\
       ["npm:2.6.0", {\
         "packageLocation": "../../../../home/rkfg/.yarn/berry/cache/react-hot-toast-npm-2.6.0-9b19dadc26-10c0.zip/node_modules/react-hot-toast/",\
@@ -3603,6 +3642,15 @@ const RAW_RUNTIME_STATE =
           "@types/react",\
           "react-dom",\
           "react"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["rematrix", [\
+      ["npm:0.2.2", {\
+        "packageLocation": "../../../../home/rkfg/.yarn/berry/cache/rematrix-npm-0.2.2-90b9f20821-10c0.zip/node_modules/rematrix/",\
+        "packageDependencies": [\
+          ["rematrix", "npm:0.2.2"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -4008,6 +4056,7 @@ const RAW_RUNTIME_STATE =
           ["globals", "npm:16.4.0"],\
           ["react", "npm:19.2.0"],\
           ["react-dom", "virtual:abd86f0db4e628a3d1844be9352358a814881ef2b82dee67188058dec9fd0f37a9154622d1055dbe04477d6e93c1d74ae4e55efba208fff05df26b9f136509a2#npm:19.2.0"],\
+          ["react-flip-toolkit", "virtual:abd86f0db4e628a3d1844be9352358a814881ef2b82dee67188058dec9fd0f37a9154622d1055dbe04477d6e93c1d74ae4e55efba208fff05df26b9f136509a2#npm:7.2.4"],\
           ["react-hot-toast", "virtual:abd86f0db4e628a3d1844be9352358a814881ef2b82dee67188058dec9fd0f37a9154622d1055dbe04477d6e93c1d74ae4e55efba208fff05df26b9f136509a2#npm:2.6.0"],\
           ["typescript", "patch:typescript@npm%3A5.9.3#optional!builtin<compat/typescript>::version=5.9.3&hash=5786d5"],\
           ["typescript-eslint", "virtual:abd86f0db4e628a3d1844be9352358a814881ef2b82dee67188058dec9fd0f37a9154622d1055dbe04477d6e93c1d74ae4e55efba208fff05df26b9f136509a2#npm:8.46.1"],\

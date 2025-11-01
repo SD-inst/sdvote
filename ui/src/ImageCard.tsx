@@ -12,12 +12,12 @@ import {
     Typography,
     type ButtonProps,
 } from '@mui/material';
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import Lightbox from 'yet-another-react-lightbox';
-import Zoom from 'yet-another-react-lightbox/plugins/zoom';
-import Fullscreen from 'yet-another-react-lightbox/plugins/fullscreen';
-import 'yet-another-react-lightbox/styles.css';
 import 'yet-another-react-lightbox/plugins/counter.css';
+import Fullscreen from 'yet-another-react-lightbox/plugins/fullscreen';
+import Zoom from 'yet-another-react-lightbox/plugins/zoom';
+import 'yet-another-react-lightbox/styles.css';
 
 const ActionButton = ({ ...props }: ButtonProps) => (
     <Button size='small' variant='outlined' {...props}>
@@ -30,26 +30,19 @@ export const ImageCard = ({
     number,
     idx,
     setPos,
-    scrollTo,
+    ...props
 }: {
     number: number;
     idx: string;
     category: string;
     setPos: (pos: string) => void;
-    scrollTo: boolean;
 }) => {
     const ref = useRef<HTMLImageElement>(null);
     const [open, setOpen] = useState(false);
-    useEffect(() => {
-        if (!scrollTo || !ref.current) {
-            return;
-        }
-        ref.current.scrollIntoView();
-    }, [scrollTo]);
     const url = `images/${category}/${number}.jpg`;
     return (
         <>
-            <Card ref={ref} sx={{ width: '100%' }}>
+            <Card ref={ref} sx={{ width: '100%' }} {...props}>
                 <CardContent>
                     <Typography variant='h6'>{idx}</Typography>
                     <img
