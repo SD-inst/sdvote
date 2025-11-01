@@ -1,6 +1,9 @@
 export type config = {
-    [category: string]: {
-        images: number;
+    url?: string;
+    categories?: {
+        [category: string]: {
+            images: number;
+        };
     };
 };
 

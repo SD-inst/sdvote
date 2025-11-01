@@ -39,7 +39,7 @@ func printResults(c echo.Context) error {
 		TokensUsed int64
 	}
 	tplParams.Lines = map[string][][]int{}
-	for cat := range config {
+	for cat := range config.Categories {
 		var votes []Vote
 		db.Select("image, sum(score) as score").Where("category = ?", cat).Group("image").Find(&votes)
 		sort.Slice(votes, func(i, j int) bool { return votes[i].Score > votes[j].Score })

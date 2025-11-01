@@ -7,6 +7,7 @@ import (
 	"io/fs"
 	"log"
 	"math/big"
+	"strings"
 	"time"
 
 	"github.com/jessevdk/go-flags"
@@ -22,7 +23,8 @@ var webroot embed.FS
 var db *gorm.DB
 
 var params struct {
-	AddToken bool `short:"a" description:"add token"`
+	AddToken       bool `short:"a" description:"add token"`
+	AddResultToken bool `short:"r" description:"add token with result access rights"`
 }
 
 func submitHandler(c echo.Context) error {
@@ -39,7 +41,7 @@ func submitHandler(c echo.Context) error {
 		if !t.VoteAllowed {
 			return echo.NewHTTPError(400, "token is not allowed to vote")
 		}
-		for categoryName, category := range config {
+		for categoryName, category := range config.Categories {
 			votes := v.Votes[categoryName]
 			if len(votes) == 0 {
 				return echo.NewHTTPError(400, "empty vote category: "+categoryName)
@@ -109,15 +111,29 @@ func main() {
 		return
 	}
 	db.Migrator().AutoMigrate(&Token{}, &Vote{})
-	if params.AddToken {
+	if params.AddToken || params.AddResultToken {
 		passwd, err := generateSecurePassword(16)
 		if err != nil {
 			log.Fatal(err)
 		}
-		if err := db.Save(&Token{Token: passwd, VoteAllowed: true}).Error; err != nil {
+		t := &Token{Token: passwd}
+		if params.AddResultToken {
+			t.ResultAllowed = true
+		} else {
+			t.VoteAllowed = true
+		}
+		if err := db.Save(t).Error; err != nil {
 			log.Fatal(err)
 		}
-		fmt.Printf("Your token: `%s`\nVote at: https://stabled.top/vote2025hw\n", passwd)
+		link := ""
+		if config.URL != "" {
+			if params.AddResultToken {
+				link = fmt.Sprintf("See results at: %s/results?token=%s\n", strings.TrimSuffix(config.URL, "/"), passwd)
+			} else {
+				link = fmt.Sprintf("Vote at: %s\n", config.URL)
+			}
+		}
+		fmt.Printf("Your token: `%s`\n%s", passwd, link)
 		return
 	}
 	e := echo.New()

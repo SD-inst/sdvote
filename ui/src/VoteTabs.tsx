@@ -12,18 +12,20 @@ export const VoteTabs = () => {
     const [votes, setVotes] = useState<votes>({});
     useEffect(() => {
         const votes: votes = Object.fromEntries(
-            Object.entries(config).map(([category, { images }]) => {
-                const numbers = [];
-                for (let i = 1; i <= images; i++) {
-                    numbers.push(i);
+            Object.entries(config.categories || {}).map(
+                ([category, { images }]) => {
+                    const numbers = [];
+                    for (let i = 1; i <= images; i++) {
+                        numbers.push(i);
+                    }
+                    // shuffle
+                    for (let i = numbers.length - 1; i > 0; i--) {
+                        const j = Math.floor(Math.random() * (i + 1));
+                        [numbers[i], numbers[j]] = [numbers[j], numbers[i]];
+                    }
+                    return [category, numbers];
                 }
-                // shuffle
-                for (let i = numbers.length - 1; i > 0; i--) {
-                    const j = Math.floor(Math.random() * (i + 1));
-                    [numbers[i], numbers[j]] = [numbers[j], numbers[i]];
-                }
-                return [category, numbers];
-            })
+            )
         );
         setVotes(votes);
     }, [config]);
@@ -32,7 +34,7 @@ export const VoteTabs = () => {
             .then((r) => r.json())
             .then((j) => {
                 setConfig(j);
-                const keys = Object.keys(j);
+                const keys = Object.keys(j.categories || {});
                 if (!keys.length) {
                     return;
                 }
