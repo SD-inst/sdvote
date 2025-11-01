@@ -25,6 +25,7 @@ var db *gorm.DB
 var params struct {
 	AddToken       bool `short:"a" description:"add token"`
 	AddResultToken bool `short:"r" description:"add token with result access rights"`
+	CloseVote      bool `short:"c" description:"disable all non-voted tokens to prevent further voting"`
 }
 
 func submitHandler(c echo.Context) error {
@@ -134,6 +135,14 @@ func main() {
 			}
 		}
 		fmt.Printf("Your token: `%s`\n%s", passwd, link)
+		return
+	}
+	if params.CloseVote {
+		result := db.Exec("UPDATE tokens SET vote_timestamp = ? WHERE vote_timestamp IS NULL AND vote_allowed = true", time.Now())
+		if err := result.Error; err != nil {
+			log.Fatalf("Error updating timestamps: %s", err)
+		}
+		fmt.Printf("Voting closed successfully, %d tokens deactivated.", result.RowsAffected)
 		return
 	}
 	e := echo.New()
