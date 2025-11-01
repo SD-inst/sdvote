@@ -1,3 +1,7 @@
+# Building
+
+Run `scripts/build_front.sh` to build the frontend part. Then run `go build` in `server/` directory to compile the main self-contained binary. It's supposed to be run in a Docker container on port 8000 which you can expose on any port on the host or, much better, reverse-proxy with Caddy/Nginx/Apache/Lighttpd etc. under a subpath or subdomain.
+
 # Config
 
 Rename `config/config.example.json` to `config/config.json` and change the contents. It should look like this:
@@ -23,7 +27,7 @@ Any number of categories can be created with any number of images. The `url` par
 
 # Data
 
-There are three main directories where the program stores and expects its data, all should be next to the main binary (`sdvote`). The images themselves should be put in the `images` directory, config in `config`, and `data` should be empty initially (that's for the sqlite database).
+There are three main directories where the program stores and expects its data, all should be next to the main binary (`sdvote`). The images themselves should be put in the `images` directory, config in `confi/config.json`, and `data` should be empty initially (that's for the sqlite database).
 
 # Images
 
