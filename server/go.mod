@@ -1,4 +1,4 @@
-module stabled.top/sdvote
+module github.com/SD-inst/sdvote
 
 go 1.24.9
 
