@@ -2,9 +2,11 @@
 
 Run `scripts/build_front.sh` to build the frontend part. Then run `go build` in `server/` directory to compile the main self-contained binary. It's supposed to be run in a Docker container on port 8000 which you can expose on any port on the host or, much better, reverse-proxy with Caddy/Nginx/Apache/Lighttpd etc. under a subpath or subdomain.
 
+All paths below are relative to the program binary, if you're developing/debugging it should be in `server/`.
+
 # Config
 
-Rename `config/config.example.json` to `config/config.json` and change the contents. It should look like this:
+Copy `config/config.example.json` to `config/config.json` and change the contents. It should look like this:
 
 ```json
 {
